@@ -119,7 +119,7 @@ function toggleLeaderboard() {
 function startGame() {
     username = usernameInput.value.trim();
     if (username === "") {
-        alert("Masukkan username dulu bro!");
+        alert("Input username X!");
         return;
     }
     startScreen.style.display = "none";
@@ -286,7 +286,7 @@ function gameLoop(timestamp) {
 
 async function initLeaderboard() {
     const leaderboard = await fetchLeaderboard();
-    currentEntry.textContent = username ? `@${username} - ${score}` : "Belum ada skor";
+    currentEntry.textContent = username ? `@${username} - ${score}` : "----";
     leaderboardList.innerHTML = "";
     leaderboard.forEach(entry => {
         const entryDiv = document.createElement("div");
