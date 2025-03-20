@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walrus x Tusky</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="startScreen" class="start-screen">
+            <h1>Walrus x Tusky</h1>
+            <input type="text" id="usernameInput" placeholder="Masukkan Username X/Twitter" maxlength="15">
+            <button onclick="startGame()">Mulai Game</button>
+        </div>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="gameOver" class="game-over">
+            <h1>Game Over</h1>
+            <button onclick="restartGame()">Main Lagi</button>
+        </div>
+        <div id="leaderboard" class="leaderboard">
+            <div class="leaderboard-header">
+                <h2>LEADERBOARD</h2>
+                <button id="toggleLeaderboard" onclick="toggleLeaderboard()">▼</button>
+            </div>
+            <div class="leaderboard-current">
+                <span id="currentEntry"></span>
+            </div>
+            <div id="leaderboardList" class="leaderboard-list" style="display: none;">
+                <!-- Daftar leaderboard bakal diisi via JS -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

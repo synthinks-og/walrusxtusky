@@ -1,0 +1,151 @@
+/* Import font PP Mondwest */
+@font-face {
+    font-family: 'PPMondwest';
+    src: url('PPMondwest-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0c0f1d;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.game-container {
+    position: relative;
+}
+
+#gameCanvas {
+    border: 6px solid #99efe4;
+    border-radius: 25px;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    display: none;
+}
+
+.game-over h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.game-over button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.game-over button:hover {
+    background-color: #45a049;
+}
+
+.start-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.start-screen h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.start-screen input {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.start-screen button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.start-screen button:hover {
+    background-color: #45a049;
+}
+
+.leaderboard {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.leaderboard-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.leaderboard-header h2 {
+    font-size: 24px;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.leaderboard-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.leaderboard-current {
+    background-color: #99efe4;
+    color: #0c0f1d;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.leaderboard-list {
+    background-color: #99efe4;
+    color: #0c0f1d;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 12px;
+    font-family: 'PPMondwest', sans-serif;
+}
+
+.leaderboard-list div {
+    margin: 5px 0;
+}
