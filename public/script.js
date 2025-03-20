@@ -1,4 +1,3 @@
-// Ambil elemen canvas dan konteksnya
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const gameOverScreen = document.getElementById("gameOver");
@@ -8,7 +7,6 @@ const currentEntry = document.getElementById("currentEntry");
 const leaderboardList = document.getElementById("leaderboardList");
 const toggleLeaderboardButton = document.getElementById("toggleLeaderboard");
 
-// Pengaturan game
 const blockSize = 50;
 const tuskySize = 40;
 const stepSize = 25;
@@ -19,17 +17,14 @@ let speed = 100;
 const speedIncreaseThreshold = 200;
 const speedIncreasePercent = 0.1;
 
-// Warna yang sesuai dengan CSS
 const backgroundColor = "#0c0f1d";
 
-// Muat gambar walrus dan tusky
 const walrusImage = new Image();
 walrusImage.src = "walrus.png";
 
 const tuskyImage = new Image();
 tuskyImage.src = "tusky.png";
 
-// Posisi awal ular (dengan padding)
 let snake = [{
     x: Math.floor((canvasWidth / 2 - padding) / stepSize) * stepSize + padding,
     y: Math.floor((canvasHeight / 2 - padding) / stepSize) * stepSize + padding,
@@ -38,13 +33,11 @@ let snake = [{
 let direction = "KANAN";
 let newDirection = "KANAN";
 
-// Posisi tusky (dengan padding)
 let tusky = {
     x: Math.floor(Math.random() * ((canvasWidth - 2 * padding) / stepSize)) * stepSize + padding,
     y: Math.floor(Math.random() * ((canvasHeight - 2 * padding) / stepSize)) * stepSize + padding
 };
 
-// Status game dan skor
 let gameOver = false;
 let score = 0;
 let lastTime = 0;
@@ -53,7 +46,6 @@ const frameInterval = 1000 / targetFPS;
 let snakeTargetPositions = [];
 let username = "";
 
-// Kontrol ular dengan tombol panah
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft" && direction !== "KANAN") {
         newDirection = "KIRI";
@@ -66,12 +58,10 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-// Fungsi untuk interpolasi posisi
 function interpolatePosition(current, target, factor) {
     return current + (target - current) * factor;
 }
 
-// Fungsi untuk simpan score ke API
 async function saveScoreToLeaderboard(username, score) {
     try {
         const response = await fetch('/api/leaderboard', {
@@ -90,7 +80,6 @@ async function saveScoreToLeaderboard(username, score) {
     }
 }
 
-// Fungsi untuk ambil leaderboard dari API
 async function fetchLeaderboard() {
     try {
         const response = await fetch('/api/leaderboard');
@@ -102,7 +91,6 @@ async function fetchLeaderboard() {
     }
 }
 
-// Fungsi untuk update leaderboard di UI
 async function updateLeaderboard() {
     if (score > 0) {
         await saveScoreToLeaderboard(username, score);
@@ -118,7 +106,6 @@ async function updateLeaderboard() {
     });
 }
 
-// Fungsi untuk toggle leaderboard
 function toggleLeaderboard() {
     if (leaderboardList.style.display === "none") {
         leaderboardList.style.display = "block";
@@ -129,7 +116,6 @@ function toggleLeaderboard() {
     }
 }
 
-// Fungsi untuk mulai game
 function startGame() {
     username = usernameInput.value.trim();
     if (username === "") {
@@ -141,7 +127,6 @@ function startGame() {
     requestAnimationFrame(gameLoop);
 }
 
-// Fungsi untuk menggerakkan ular
 function moveSnake() {
     if (direction !== newDirection) {
         direction = newDirection;
@@ -219,7 +204,6 @@ function moveSnake() {
     updateLeaderboard();
 }
 
-// Fungsi untuk cek tabrakan
 function checkCollision() {
     const head = snake[0];
     for (let i = 1; i < snake.length; i++) {
@@ -232,7 +216,6 @@ function checkCollision() {
     return false;
 }
 
-// Fungsi untuk restart game
 function restartGame() {
     updateLeaderboard();
     snake = [{
@@ -255,7 +238,6 @@ function restartGame() {
     requestAnimationFrame(gameLoop);
 }
 
-// Loop utama game
 function gameLoop(timestamp) {
     if (gameOver) {
         gameOverScreen.style.display = "block";
@@ -302,7 +284,6 @@ function gameLoop(timestamp) {
     requestAnimationFrame(gameLoop);
 }
 
-// Inisialisasi leaderboard saat halaman di-load
 async function initLeaderboard() {
     const leaderboard = await fetchLeaderboard();
     currentEntry.textContent = username ? `@${username} - ${score}` : "Belum ada skor";
@@ -314,7 +295,6 @@ async function initLeaderboard() {
     });
 }
 
-// Mulai game setelah gambar dimuat, tapi tunggu input username dulu
 Promise.all([
     new Promise((resolve) => {
         walrusImage.onload = resolve;

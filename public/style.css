@@ -44,15 +44,15 @@ body {
 .game-over button {
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #99efe4;
+    color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
     font-family: 'PPMondwest', sans-serif;
 }
 
 .game-over button:hover {
-    background-color: #45a049;
+    background-color: #99efe4;
 }
 
 .start-screen {
@@ -83,15 +83,15 @@ body {
 .start-screen button {
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #99efe4;
+    color: rgb(8, 8, 8);
     border: none;
     cursor: pointer;
     font-family: 'PPMondwest', sans-serif;
 }
 
 .start-screen button:hover {
-    background-color: #45a049;
+    background-color: #99efe4;
 }
 
 .leaderboard {
